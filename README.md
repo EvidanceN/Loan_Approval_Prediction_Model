@@ -17,8 +17,12 @@ This project is a machine learning model that predicts whether a loan applicatio
 
 ---
 ### Data Source
+The dataset used [Loan Data on Kaggle](https://www.kaggle.com/code/experience08/loan-prediction/input) contains records of loan applicants and whether their loan was approved. Key features include:
 
-[Loan Data]([(https://www.kaggle.com/code/experience08/loan-prediction](https://www.kaggle.com/code/experience08/loan-prediction/input))
+- Gender, Married, Education, Self_Employed
+- ApplicantIncome, CoapplicantIncome, LoanAmount
+- Credit_History, Property_Area
+- Loan_Status (Target variable)
 ---
 
 ### Tools
