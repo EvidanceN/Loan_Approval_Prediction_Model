@@ -71,7 +71,7 @@ use the loded model and new data to make a prediction
 
 ```
 #Testing using new data
-new_data=(24,2,20,0,7500,0,2,0,2,0,0,0,1,1,1,90,0,0,0,0,2)
+new_data=(1,0,1,0,7500,2500,150,6,0,1)
 
 # changing the input_data to numpy array
 new_data_as_numpy_array = np.asarray(new_data)
@@ -79,13 +79,18 @@ new_data_as_numpy_array = np.asarray(new_data)
 # reshape the array as we are predicting for one instance
 new_data_reshaped = new_data_as_numpy_array.reshape(1,-1)
 
-prediction = loaded_model.predict(new_data_reshaped)
+prediction = Loan_Prediction_Model.predict(new_data_reshaped)
 print(prediction)
 
 if (prediction[0] == 0):
-  print('The employee will stay in the company')
+  print('You do not qualify for a loan')
 else:
-  print('The employee will leave the company')
+  print('you qualify for a loan')
+```
+Answer
+```
+[0]
+You do not qualify for a loan
 ```
 
 ### Performance Metrics
