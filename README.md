@@ -6,8 +6,8 @@
 - [Data source](#data-source)
 - [Data preparation](#data-preparation)
 - [Model Training](#model-training)
-- [Save the  model](#save-the-model)
-- [Test the  model](#test-the-model)
+- [Save the model](#save-the-model)
+- [Test the model](#test-the-model)
 - [Performance Metrics](#performance-metrics)
 - [Recommandations](#recommandations)
 
@@ -18,7 +18,7 @@ This project is a machine learning model that predicts whether a loan applicatio
 ---
 ### Data Source
 
-Loan Data: [Loan Approval Prediction]([(https://www.kaggle.com/code/experience08/loan-prediction](https://www.kaggle.com/code/experience08/loan-prediction/input))
+[Loan Data]([(https://www.kaggle.com/code/experience08/loan-prediction](https://www.kaggle.com/code/experience08/loan-prediction/input))
 ---
 
 ### Tools
