@@ -1,4 +1,4 @@
-# Loan Prediction model
+# Loan Approval Prediction Model
 
 ## Table of contents
 
@@ -6,9 +6,9 @@
 - [Data source](#data-source)
 - [Data preparation](#data-preparation)
 - [Model Training](#model-training)
-- [Save the  model](#save-the-model)
-- [Test the  model](#test-the-model)
-- [Results](#results)
+- [Save the model](#save-the-model)
+- [Test the model](#test-the-model)
+- [Performance Metrics](#performance-metrics)
 - [Recommandations](#recommandations)
 
   ---
@@ -18,34 +18,51 @@ This project is a machine learning model that predicts whether a loan applicatio
 ---
 ### Data Source
 
-Loan Data: [Loan Approval Prediction Model](https://www.kaggle.com/code/experience08/loan-prediction)
+[Loan Data]([(https://www.kaggle.com/code/experience08/loan-prediction](https://www.kaggle.com/code/experience08/loan-prediction/input))
 ---
 
 ### Tools
-- Kaggle
-- Python
-- scikit-learn
+- Python 3
+- Pandas, NumPy
+- Scikit-learn
+- imbalanced-learn (for SMOTE)
+- Matplotlib / Seaborn (for visualizations)
+- joblib
+
+##  Setup Instructions
+
+1. Clone the repository
+   
+   ```bash
+   git clone https://github.com/yourusername/Loan-Approval-Prediction.git
+   cd loan-approval-prediction
+   ```
+2. Install Dependencies
+   
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ### Data preparation
 1. Data Cleaning.
-2.  Exploratory Data Analysis.
-3. Feature Engineering.
-4. Model Training.
-5. Evaluation.
-6. Model Saving and Inference.
+2. Exploratory Data Analysis.
+3. Model Training.
+4. Evaluation.
+5. Model Saving.
 
 ### Model training
-The model was trained the Logistic Regression which is suitable for binary and multi-class classification problems.
+The model was trained using a RandomForestClassifier.
 
 ```
- Loan_Prediction_Model = LogisticRegression()
+Loan_Prediction_Model = RandomForestClassifier(n_estimators=100, random_state=42)
 ```
 
 ### Save the model
 save and load the model for future use
 
 ```
-
+import joblib
+joblib.dump(Loan_Prediction_Model, "loan_approval_model.pkl")
 ```
 
 ###  Test the Model
@@ -54,7 +71,7 @@ use the loded model and new data to make a prediction
 
 ```
 #Testing using new data
-new_data=(24,2,20,0,7500,0,2,0,2,0,0,0,1,1,1,90,0,0,0,0,2)
+new_data=(1,0,1,0,7500,2500,150,6,0,1)
 
 # changing the input_data to numpy array
 new_data_as_numpy_array = np.asarray(new_data)
@@ -62,23 +79,31 @@ new_data_as_numpy_array = np.asarray(new_data)
 # reshape the array as we are predicting for one instance
 new_data_reshaped = new_data_as_numpy_array.reshape(1,-1)
 
-prediction = loaded_model.predict(new_data_reshaped)
+prediction = Loan_Prediction_Model.predict(new_data_reshaped)
 print(prediction)
 
 if (prediction[0] == 0):
-  print('The employee will stay in the company')
+  print('You do not qualify for a loan')
 else:
-  print('The employee will leave the company')
+  print('you qualify for a loan')
+```
+Answer
+```
+[0]
+You do not qualify for a loan
 ```
 
-### Results
+### Performance Metrics
+1. Accuracy: ~0.84
+2. ROC-AUC Score: ~0.88 
+3. Classification report includes precision, recall, and F1-score
 
-An accuracy of 69.68% was achived using the trained model
 
 ### Recommandations
 
 To improve the model 
 - Tune hyperparameters
+- Perform feature engeneering
 
 
 
